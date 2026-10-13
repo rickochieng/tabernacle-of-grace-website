@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Tabernacle of Grace City of Hope Church</title>
+<meta name="description" content="Tabernacle of Grace City of Hope Church — A Place of Grace, Hope, and Transformation in Nairobi, Kenya. Join us for Sunday services, Bible study, and community.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar" class="scrolled">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="location.href='{% url 'home' %}'">
+      <span>Tabernacle of Grace</span>
+      <span>City of Hope Church · Nairobi</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'sermons' %}">Sermons</a></li>
+      <li><a href="{% url 'ministries' %}">Ministries</a></li>
+      <li><a href="{% url 'events' %}">Events</a></li>
+      <li><a href="{% url 'gallery' %}">Gallery</a></li>
+      <li><a href="{% url 'contact' %}" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="{% url 'home' %}">Home</a>
+  <a href="{% url 'about' %}">About</a>
+  <a href="{% url 'sermons' %}">Sermons</a>
+  <a href="{% url 'ministries' %}">Ministries</a>
+  <a href="{% url 'events' %}">Events</a>
+  <a href="{% url 'gallery' %}">Gallery</a>
+  <a href="{% url 'contact' %}" class="active">Contact Us</a>
+</div>
+
+<main>
+<div class="about-hero">
+    <div style="max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1">
+      <span class="section-label" style="color:var(--gold-light)">We'd Love to Meet You</span>
+      <h1 class="section-title light" style="font-size:clamp(2rem,5vw,3.5rem)">Get In Touch</h1>
+      <p style="color:rgba(255,255,255,.7);font-weight:300">Our doors are always open. Reach out, visit us, or send a message below.</p>
+    </div>
+  </div>
+  <section style="background:var(--cream)">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info">
+            <h3>Find Us</h3>
+            <div class="info-item"><div class="info-icon">📍</div><div class="info-text"><strong>Address</strong><span>{{ site.address }}, Kenya</span></div></div>
+            <div class="info-item"><div class="info-icon">📞</div><div class="info-text"><strong>Phone</strong><span>{{ site.phone }}</span></div></div>
+            <div class="info-item"><div class="info-icon">⏰</div><div class="info-text"><strong>Service Times</strong><span>Sunday 9:00 AM · Wednesday 6:00 PM · Friday 7:00 PM</span></div></div>
+            <div class="info-item"><div class="info-icon">📍</div><div class="info-text"><strong>Location Code</strong><span>MPWP+W7 Nairobi</span></div></div>
+            <a href="https://wa.me/254740181262" class="whatsapp-btn" target="_blank">💬 WhatsApp Us — {{ site.phone }}</a>
+            <div class="map-embed">
+              <div class="map-placeholder" onclick="window.open('https://maps.google.com/?q=Wambiri+Rd+Opposite+Lenana+School+Primary+Nairobi+Kenya','_blank')">
+                <div class="map-pin">📍</div>
+                <div style="font-weight:600">Wambiri Rd, Nairobi</div>
+                <div style="font-size:.75rem;opacity:.6">Click to open in Google Maps</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--navy);margin-bottom:1.5rem">Send Us a Message</h3>
+          <div class="form-grid">
+            <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+            <div class="form-group"><label>Phone / Email</label><input type="text" placeholder="Contact info"></div>
+            <div class="form-group full"><label>Subject</label><input type="text" placeholder="How can we help?"></div>
+            <div class="form-group full"><label>Message</label><textarea style="min-height:120px" placeholder="Tell us more..."></textarea></div>
+          </div>
+          <div style="margin-top:1.2rem">
+            <button class="btn btn-gold" data-submit="contact">Send Message →</button>
+          </div>
+          <div style="margin-top:2rem;background:var(--ivory);padding:1.5rem;border-radius:4px">
+            <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--navy);font-size:1rem">"We are honored to pray with you. No request is too big or too small."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Tabernacle of Grace</div>
+      <p>City of Hope Church · {{ site.address }}, Kenya</p>
+      <p style="margin-top:.5rem;font-size:.82rem">📞 {{ site.phone }}</p>
+      <div class="newsletter" style="margin-top:1.2rem">
+        <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Newsletter</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button data-submit="subscribe">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'sermons' %}">Sermons</a></li>
+        <li><a href="{% url 'ministries' %}">Ministries</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ministries</h4>
+      <ul>
+        <li><a href="{% url 'ministries' %}">Youth Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Worship Team</a></li>
+        <li><a href="{% url 'ministries' %}">Children's Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Women's Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Men's Fellowship</a></li>
+        <li><a href="{% url 'ministries' %}">Outreach</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Service Times</h4>
+      <ul>
+        <li><a href="#">Sunday · 9:00 AM</a></li>
+        <li><a href="#">Wednesday · 6:00 PM</a></li>
+        <li><a href="#">Friday · 7:00 PM</a></li>
+        <li><a href="#">Saturday Practice · 3:00 PM</a></li>
+      </ul>
+      <div style="margin-top:1.2rem">
+        <h4>Follow Us</h4>
+        <div class="social-links" style="margin-top:.6rem">
+          <a href="#" title="Facebook" onclick="alert('Follow us on Facebook for updates! 📘');return false">f</a>
+          <a href="#" title="YouTube" onclick="alert('Subscribe to our YouTube channel! 📺');return false">▶</a>
+          <a href="#" title="Instagram" onclick="alert('Follow us on Instagram! 📸');return false">✦</a>
+          <a href="https://wa.me/254740181262" title="WhatsApp" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tabernacle of Grace City of Hope Church, Nairobi, Kenya.</span>
+    <span style="color:var(--gold);font-style:italic">"A Place of Grace, Hope, and Transformation"</span>
+  </div>
+</footer>
+
+<!-- DARK MODE TOGGLE -->
+<button class="dark-toggle" onclick="toggleDark()" title="Toggle dark/light mode" id="darkToggle">🌙</button>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

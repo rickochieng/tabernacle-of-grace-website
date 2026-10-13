@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Tabernacle of Grace City of Hope Church</title>
+<meta name="description" content="Tabernacle of Grace City of Hope Church — A Place of Grace, Hope, and Transformation in Nairobi, Kenya. Join us for Sunday services, Bible study, and community.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar" class="scrolled">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="location.href='{% url 'home' %}'">
+      <span>Tabernacle of Grace</span>
+      <span>City of Hope Church · Nairobi</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}" class="active">About</a></li>
+      <li><a href="{% url 'sermons' %}">Sermons</a></li>
+      <li><a href="{% url 'ministries' %}">Ministries</a></li>
+      <li><a href="{% url 'events' %}">Events</a></li>
+      <li><a href="{% url 'gallery' %}">Gallery</a></li>
+      <li><a href="{% url 'contact' %}" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="{% url 'home' %}">Home</a>
+  <a href="{% url 'about' %}" class="active">About</a>
+  <a href="{% url 'sermons' %}">Sermons</a>
+  <a href="{% url 'ministries' %}">Ministries</a>
+  <a href="{% url 'events' %}">Events</a>
+  <a href="{% url 'gallery' %}">Gallery</a>
+  <a href="{% url 'contact' %}">Contact Us</a>
+</div>
+
+<main>
+<div class="about-hero">
+    <div style="max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1">
+      <span class="section-label" style="color:var(--gold-light)">Our Story</span>
+      <h1 class="section-title light" style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:1rem">About Our Church</h1>
+      <p style="color:rgba(255,255,255,.7);font-weight:300;font-size:1.05rem">Founded in faith, sustained by grace, and called to transform Nairobi and beyond.</p>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="about-section aos">
+      <h3>Our History</h3>
+      <div class="divider"></div>
+      <p>Tabernacle of Grace City of Hope Church was founded in Nairobi, Kenya, with a simple but burning vision: to create a community where hurting people could encounter the healing grace of God. Beginning as a small prayer group meeting in a home on Wambiri Road, the church grew steadily as God added souls and provided provision.</p>
+      <p style="margin-top:1rem">Located opposite Lenana School Primary, our church sits at the heart of the community we serve. From those early gatherings, we have grown into a family of hundreds, united by love, led by the Spirit, and anchored in the Word of God.</p>
+    </div>
+    <div class="about-section aos">
+      <h3>Mission & Vision</h3>
+      <div class="divider"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+        <div style="background:var(--ivory);padding:2rem;border-radius:4px;border-left:3px solid var(--gold)">
+          <h4 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:.8rem">Our Mission</h4>
+          <p style="color:var(--muted);font-weight:300;font-size:.95rem">To bring hope, grace, healing, and spiritual transformation to our community through the Gospel of Jesus Christ — touching lives from Nairobi to the nations.</p>
+        </div>
+        <div style="background:var(--ivory);padding:2rem;border-radius:4px;border-left:3px solid var(--navy)">
+          <h4 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:.8rem">Our Vision</h4>
+          <p style="color:var(--muted);font-weight:300;font-size:.95rem">To be a beacon of hope in every neighbourhood — a church where every person is known, loved, equipped, and sent to fulfil their God-given purpose.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-section aos">
+      <h3>Our Core Values</h3>
+      <div class="divider"></div>
+      <div class="values-grid">
+        <div class="value-item"><div class="icon">✝️</div><h4>Faith</h4></div>
+        <div class="value-item"><div class="icon">🕊</div><h4>Grace</h4></div>
+        <div class="value-item"><div class="icon">🌟</div><h4>Hope</h4></div>
+        <div class="value-item"><div class="icon">🎶</div><h4>Worship</h4></div>
+        <div class="value-item"><div class="icon">🤝</div><h4>Community</h4></div>
+        <div class="value-item"><div class="icon">🌍</div><h4>Outreach</h4></div>
+      </div>
+    </div>
+    <div class="about-section aos">
+      <h3>What We Believe</h3>
+      <div class="divider"></div>
+      <p>We are a Bible-believing, Spirit-filled Christian church. We hold to the foundational truths of Scripture: the Trinity, the virgin birth and resurrection of Jesus Christ, salvation by grace through faith alone, the authority of the Holy Bible, the power of the Holy Spirit, and the imminent return of Jesus Christ.</p>
+    </div>
+    <div class="about-section aos">
+      <h3>Our Leadership</h3>
+      <div class="divider"></div>
+      <div class="leadership-grid">
+        <div class="leader-card"><div class="leader-avatar">👨‍⚖️</div><h4>Senior Pastor</h4><span>Lead Minister</span></div>
+        <div class="leader-card"><div class="leader-avatar">👩‍⚖️</div><h4>Worship Leader</h4><span>Music & Arts Ministry</span></div>
+        <div class="leader-card"><div class="leader-avatar">👨‍🏫</div><h4>Youth Pastor</h4><span>Youth & Young Adults</span></div>
+        <div class="leader-card"><div class="leader-avatar">👩‍💼</div><h4>Deaconess</h4><span>Women's Ministry</span></div>
+      </div>
+    </div>
+    <div class="scripture-banner aos">
+      <blockquote>"And let us consider how we may spur one another on toward love and good deeds, not giving up meeting together... but encouraging one another."</blockquote>
+      <cite>Hebrews 10:24–25</cite>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Tabernacle of Grace</div>
+      <p>City of Hope Church · {{ site.address }}, Kenya</p>
+      <p style="margin-top:.5rem;font-size:.82rem">📞 {{ site.phone }}</p>
+      <div class="newsletter" style="margin-top:1.2rem">
+        <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Newsletter</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button data-submit="subscribe">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'sermons' %}">Sermons</a></li>
+        <li><a href="{% url 'ministries' %}">Ministries</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ministries</h4>
+      <ul>
+        <li><a href="{% url 'ministries' %}">Youth Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Worship Team</a></li>
+        <li><a href="{% url 'ministries' %}">Children's Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Women's Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Men's Fellowship</a></li>
+        <li><a href="{% url 'ministries' %}">Outreach</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Service Times</h4>
+      <ul>
+        <li><a href="#">Sunday · 9:00 AM</a></li>
+        <li><a href="#">Wednesday · 6:00 PM</a></li>
+        <li><a href="#">Friday · 7:00 PM</a></li>
+        <li><a href="#">Saturday Practice · 3:00 PM</a></li>
+      </ul>
+      <div style="margin-top:1.2rem">
+        <h4>Follow Us</h4>
+        <div class="social-links" style="margin-top:.6rem">
+          <a href="#" title="Facebook" onclick="alert('Follow us on Facebook for updates! 📘');return false">f</a>
+          <a href="#" title="YouTube" onclick="alert('Subscribe to our YouTube channel! 📺');return false">▶</a>
+          <a href="#" title="Instagram" onclick="alert('Follow us on Instagram! 📸');return false">✦</a>
+          <a href="https://wa.me/254740181262" title="WhatsApp" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tabernacle of Grace City of Hope Church, Nairobi, Kenya.</span>
+    <span style="color:var(--gold);font-style:italic">"A Place of Grace, Hope, and Transformation"</span>
+  </div>
+</footer>
+
+<!-- DARK MODE TOGGLE -->
+<button class="dark-toggle" onclick="toggleDark()" title="Toggle dark/light mode" id="darkToggle">🌙</button>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

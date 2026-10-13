@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sermons | Tabernacle of Grace City of Hope Church</title>
+<meta name="description" content="Tabernacle of Grace City of Hope Church — A Place of Grace, Hope, and Transformation in Nairobi, Kenya. Join us for Sunday services, Bible study, and community.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar" class="scrolled">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="location.href='{% url 'home' %}'">
+      <span>Tabernacle of Grace</span>
+      <span>City of Hope Church · Nairobi</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'sermons' %}" class="active">Sermons</a></li>
+      <li><a href="{% url 'ministries' %}">Ministries</a></li>
+      <li><a href="{% url 'events' %}">Events</a></li>
+      <li><a href="{% url 'gallery' %}">Gallery</a></li>
+      <li><a href="{% url 'contact' %}" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="{% url 'home' %}">Home</a>
+  <a href="{% url 'about' %}">About</a>
+  <a href="{% url 'sermons' %}" class="active">Sermons</a>
+  <a href="{% url 'ministries' %}">Ministries</a>
+  <a href="{% url 'events' %}">Events</a>
+  <a href="{% url 'gallery' %}">Gallery</a>
+  <a href="{% url 'contact' %}">Contact Us</a>
+</div>
+
+<main>
+<div class="about-hero">
+    <div style="max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1">
+      <span class="section-label" style="color:var(--gold-light)">The Living Word</span>
+      <h1 class="section-title light" style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:1rem">Sermons & Messages</h1>
+      <p style="color:rgba(255,255,255,.7);font-weight:300">"Faith comes by hearing, and hearing by the Word of God." — Romans 10:17</p>
+      <div style="margin-top:1.5rem">
+        <button class="btn btn-gold" style="margin-right:.8rem" onclick="alert('Live stream available during service times. Join us Sunday 9AM! 🔴')">🔴 Watch Live</button>
+        <button class="btn btn-outline" onclick="alert('Radio stream will be available soon! 📻')">📻 Listen Live</button>
+      </div>
+    </div>
+  </div>
+  <section style="background:var(--cream)">
+    <div class="container">
+      <div style="display:flex;gap:1rem;margin-bottom:2.5rem;flex-wrap:wrap;align-items:center">
+        <input type="text" placeholder="Search sermons..." style="flex:1;min-width:220px;padding:.6rem 1rem;border:1px solid rgba(15,27,53,.2);border-radius:2px;font-family:'Crimson Pro',serif;font-size:.95rem;outline:none">
+        <select style="padding:.6rem 1rem;border:1px solid rgba(15,27,53,.2);border-radius:2px;font-family:'Crimson Pro',serif;font-size:.9rem">
+          <option>All Categories</option><option>Faith & Healing</option><option>Hope & Grace</option><option>Identity & Purpose</option><option>Prayer</option><option>Revival</option>
+        </select>
+      </div>
+      <div style="background:linear-gradient(135deg,var(--navy),var(--purple));border-radius:4px;padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-bottom:3rem" class="aos">
+        <div>
+          <span style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)">Featured Sermon</span>
+          <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:white;margin:.5rem 0">"The God Who Restores"</h2>
+          <p style="color:rgba(255,255,255,.65);font-weight:300;margin-bottom:1rem">A powerful message on God's unfailing ability to restore what the enemy has stolen. You are not forgotten. Your season of restoration is here.</p>
+          <p style="font-size:.8rem;color:var(--gold)">Pastor Emmanuel Wanjiku · May 19, 2025 · 48 min</p>
+        </div>
+        <button class="btn btn-gold" style="white-space:nowrap;font-size:.9rem" onclick="alert('Playing sermon... 🎵')">▶ Play Now</button>
+      </div>
+      <div class="sermons-grid">
+{% for s in sermons %}
+        <div class="sermon-card aos"><div class="sermon-thumb" style="{% if s.thumbnail %}background:url('{{ s.thumbnail.url }}') center/cover;{% endif %}{% if s.video_url %}cursor:pointer{% endif %}"{% if s.video_url %} onclick="window.open('{{ s.video_url }}','_blank')"{% endif %}><div class="play-btn"></div></div><div class="sermon-body"><p class="sermon-cat">{{ s.category }}</p><h4>"{{ s.title }}"</h4><p>{{ s.description }}</p><p class="sermon-meta">{{ s.speaker }} · {{ s.date|date:"M j, Y" }}</p></div></div>
+        {% empty %}<p style="text-align:center;color:var(--muted);grid-column:1/-1">New sermons are coming soon.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Tabernacle of Grace</div>
+      <p>City of Hope Church · {{ site.address }}, Kenya</p>
+      <p style="margin-top:.5rem;font-size:.82rem">📞 {{ site.phone }}</p>
+      <div class="newsletter" style="margin-top:1.2rem">
+        <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Newsletter</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button data-submit="subscribe">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'sermons' %}">Sermons</a></li>
+        <li><a href="{% url 'ministries' %}">Ministries</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ministries</h4>
+      <ul>
+        <li><a href="{% url 'ministries' %}">Youth Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Worship Team</a></li>
+        <li><a href="{% url 'ministries' %}">Children's Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Women's Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Men's Fellowship</a></li>
+        <li><a href="{% url 'ministries' %}">Outreach</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Service Times</h4>
+      <ul>
+        <li><a href="#">Sunday · 9:00 AM</a></li>
+        <li><a href="#">Wednesday · 6:00 PM</a></li>
+        <li><a href="#">Friday · 7:00 PM</a></li>
+        <li><a href="#">Saturday Practice · 3:00 PM</a></li>
+      </ul>
+      <div style="margin-top:1.2rem">
+        <h4>Follow Us</h4>
+        <div class="social-links" style="margin-top:.6rem">
+          <a href="#" title="Facebook" onclick="alert('Follow us on Facebook for updates! 📘');return false">f</a>
+          <a href="#" title="YouTube" onclick="alert('Subscribe to our YouTube channel! 📺');return false">▶</a>
+          <a href="#" title="Instagram" onclick="alert('Follow us on Instagram! 📸');return false">✦</a>
+          <a href="https://wa.me/254740181262" title="WhatsApp" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tabernacle of Grace City of Hope Church, Nairobi, Kenya.</span>
+    <span style="color:var(--gold);font-style:italic">"A Place of Grace, Hope, and Transformation"</span>
+  </div>
+</footer>
+
+<!-- DARK MODE TOGGLE -->
+<button class="dark-toggle" onclick="toggleDark()" title="Toggle dark/light mode" id="darkToggle">🌙</button>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

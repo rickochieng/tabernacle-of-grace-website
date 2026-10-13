@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministries | Tabernacle of Grace City of Hope Church</title>
+<meta name="description" content="Tabernacle of Grace City of Hope Church — A Place of Grace, Hope, and Transformation in Nairobi, Kenya. Join us for Sunday services, Bible study, and community.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar" class="scrolled">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="location.href='{% url 'home' %}'">
+      <span>Tabernacle of Grace</span>
+      <span>City of Hope Church · Nairobi</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'sermons' %}">Sermons</a></li>
+      <li><a href="{% url 'ministries' %}" class="active">Ministries</a></li>
+      <li><a href="{% url 'events' %}">Events</a></li>
+      <li><a href="{% url 'gallery' %}">Gallery</a></li>
+      <li><a href="{% url 'contact' %}" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="{% url 'home' %}">Home</a>
+  <a href="{% url 'about' %}">About</a>
+  <a href="{% url 'sermons' %}">Sermons</a>
+  <a href="{% url 'ministries' %}" class="active">Ministries</a>
+  <a href="{% url 'events' %}">Events</a>
+  <a href="{% url 'gallery' %}">Gallery</a>
+  <a href="{% url 'contact' %}">Contact Us</a>
+</div>
+
+<main>
+<div class="about-hero">
+    <div style="max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1">
+      <span class="section-label" style="color:var(--gold-light)">Find Your Family</span>
+      <h1 class="section-title light" style="font-size:clamp(2rem,5vw,3.5rem)">Our Ministries</h1>
+      <p style="color:rgba(255,255,255,.7);font-weight:300">Every gift matters. Every person belongs. Discover where God is calling you.</p>
+    </div>
+  </div>
+  <section style="background:var(--cream)">
+    <div class="container">
+      <div class="ministries-grid">
+        <div class="ministry-card aos"><div class="ministry-header"><div class="ministry-icon">🔥</div><h3>Youth Ministry</h3><p>Dynamic faith community for teens and young adults (ages 13–35). We worship passionately, grow through the Word, and support each other through life's journey. Monthly retreats, weekly gatherings, and mentorship programs.</p></div><div class="ministry-footer"><span class="ministry-time">Saturdays · 2:00 PM</span><button class="btn-sm" onclick="alert('Connect request sent! Welcome to Youth Ministry! 🔥')">Join Us</button></div></div>
+        <div class="ministry-card aos"><div class="ministry-header"><div class="ministry-icon">🎶</div><h3>Worship Team</h3><p>We are musicians, vocalists, and creatives passionate about ushering in God's presence. If you play an instrument or love to sing, come be part of a team that takes worship seriously as ministry.</p></div><div class="ministry-footer"><span class="ministry-time">Saturdays · 3:00 PM</span><button class="btn-sm" onclick="alert('Connect request sent! Welcome to Worship Team! 🎶')">Join Us</button></div></div>
+        <div class="ministry-card aos"><div class="ministry-header"><div class="ministry-icon">🧒</div><h3>Children's Ministry</h3><p>Planting seeds of faith in the youngest hearts. Our dedicated children's team creates a safe, fun, and Word-centered environment for children ages 0–12 every Sunday during service.</p></div><div class="ministry-footer"><span class="ministry-time">Sundays · 9:00 AM</span><button class="btn-sm" onclick="alert('Connect request sent! 🧒')">Join Us</button></div></div>
+        <div class="ministry-card aos"><div class="ministry-header"><div class="ministry-icon">👩‍👩‍👧</div><h3>Women's Ministry</h3><p>A safe, nurturing space for women to grow in faith, build lasting friendships, and step into their God-given destiny. Monthly meetings, Bible study, and women's conferences throughout the year.</p></div><div class="ministry-footer"><span class="ministry-time">First Saturdays · 10:00 AM</span><button class="btn-sm" onclick="alert('Connect request sent! 👩‍👩‍👧')">Join Us</button></div></div>
+        <div class="ministry-card aos"><div class="ministry-header"><div class="ministry-icon">💪</div><h3>Men's Fellowship</h3><p>Iron sharpens iron. Our Men's Fellowship is a brotherhood where men are challenged, equipped, and accountable. We tackle the real issues men face with honesty, Scripture, and community.</p></div><div class="ministry-footer"><span class="ministry-time">Last Saturdays · 8:00 AM</span><button class="btn-sm" onclick="alert('Connect request sent! 💪')">Join Us</button></div></div>
+        <div class="ministry-card aos"><div class="ministry-header"><div class="ministry-icon">🌍</div><h3>Outreach & Evangelism</h3><p>We believe the church must go beyond its walls. Our evangelism team conducts regular community outreaches, open-air crusades, hospital visits, and feeding programs across Nairobi.</p></div><div class="ministry-footer"><span class="ministry-time">Monthly · Saturday</span><button class="btn-sm" onclick="alert('Connect request sent! 🌍')">Join Us</button></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Tabernacle of Grace</div>
+      <p>City of Hope Church · {{ site.address }}, Kenya</p>
+      <p style="margin-top:.5rem;font-size:.82rem">📞 {{ site.phone }}</p>
+      <div class="newsletter" style="margin-top:1.2rem">
+        <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Newsletter</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button data-submit="subscribe">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'sermons' %}">Sermons</a></li>
+        <li><a href="{% url 'ministries' %}">Ministries</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ministries</h4>
+      <ul>
+        <li><a href="{% url 'ministries' %}">Youth Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Worship Team</a></li>
+        <li><a href="{% url 'ministries' %}">Children's Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Women's Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Men's Fellowship</a></li>
+        <li><a href="{% url 'ministries' %}">Outreach</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Service Times</h4>
+      <ul>
+        <li><a href="#">Sunday · 9:00 AM</a></li>
+        <li><a href="#">Wednesday · 6:00 PM</a></li>
+        <li><a href="#">Friday · 7:00 PM</a></li>
+        <li><a href="#">Saturday Practice · 3:00 PM</a></li>
+      </ul>
+      <div style="margin-top:1.2rem">
+        <h4>Follow Us</h4>
+        <div class="social-links" style="margin-top:.6rem">
+          <a href="#" title="Facebook" onclick="alert('Follow us on Facebook for updates! 📘');return false">f</a>
+          <a href="#" title="YouTube" onclick="alert('Subscribe to our YouTube channel! 📺');return false">▶</a>
+          <a href="#" title="Instagram" onclick="alert('Follow us on Instagram! 📸');return false">✦</a>
+          <a href="https://wa.me/254740181262" title="WhatsApp" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tabernacle of Grace City of Hope Church, Nairobi, Kenya.</span>
+    <span style="color:var(--gold);font-style:italic">"A Place of Grace, Hope, and Transformation"</span>
+  </div>
+</footer>
+
+<!-- DARK MODE TOGGLE -->
+<button class="dark-toggle" onclick="toggleDark()" title="Toggle dark/light mode" id="darkToggle">🌙</button>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

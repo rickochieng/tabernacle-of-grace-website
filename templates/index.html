@@ -1,0 +1,390 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabernacle of Grace City of Hope Church | Nairobi, Kenya</title>
+<meta name="description" content="Tabernacle of Grace City of Hope Church — A Place of Grace, Hope, and Transformation in Nairobi, Kenya. Join us for Sunday services, Bible study, and community.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar" class="scrolled">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="location.href='{% url 'home' %}'">
+      <span>Tabernacle of Grace</span>
+      <span>City of Hope Church · Nairobi</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="{% url 'home' %}" class="active">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'sermons' %}">Sermons</a></li>
+      <li><a href="{% url 'ministries' %}">Ministries</a></li>
+      <li><a href="{% url 'events' %}">Events</a></li>
+      <li><a href="{% url 'gallery' %}">Gallery</a></li>
+      <li><a href="{% url 'contact' %}" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="{% url 'home' %}" class="active">Home</a>
+  <a href="{% url 'about' %}">About</a>
+  <a href="{% url 'sermons' %}">Sermons</a>
+  <a href="{% url 'ministries' %}">Ministries</a>
+  <a href="{% url 'events' %}">Events</a>
+  <a href="{% url 'gallery' %}">Gallery</a>
+  <a href="{% url 'contact' %}">Contact Us</a>
+</div>
+
+<main>
+<section class="hero">
+    <div class="hero-bg"></div>
+    <img class="hero-photo" src=\"{% static 'images/hero-bg.jpg' %}\" alt="" onerror="this.remove()">
+    <div class="hero-overlay"></div>
+    <div class="hero-cross">✛</div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Welcome to our family of faith</p>
+        <h1 class="hero-title">Tabernacle of Grace<br><em>City of Hope Church</em></h1>
+        <div class="hero-rule"></div>
+        <p class="hero-sub">A Place of Grace, Hope, and Transformation — where lives are changed through worship, faith, and the power of God.</p>
+        <p class="hero-verse">"For I know the plans I have for you, plans to prosper you and not to harm you." — Jeremiah 29:11</p>
+        <div class="hero-btns">
+          <button class="btn btn-gold" onclick="location.href='{% url 'contact' %}'">🕊 Visit Us</button>
+          <button class="btn btn-outline" onclick="location.href='{% url 'sermons' %}'">▶ Watch Sermons</button>
+          <button class="btn btn-outline" onclick="location.href='{% url 'ministries' %}'">✦ Join Worship</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK INFO STRIP -->
+  <section class="info-strip">
+    <div class="container info-grid aos">
+      <div class="info-item"><span class="info-icon">⏰</span><div><strong>Sunday Service</strong><p>9:00 AM – 12:00 PM</p></div></div>
+      <div class="info-item"><span class="info-icon">📍</span><div><strong>Find Us</strong><p>{{ site.address }}</p></div></div>
+      <div class="info-item"><span class="info-icon">📞</span><div><strong>Call or WhatsApp</strong><p>{{ site.phone }}</p></div></div>
+    </div>
+  </section>
+
+  <!-- PHOTO MOSAIC -->
+  <section class="moments" style="background:var(--ivory)">
+    <div class="container">
+      <div style="text-align:center" class="aos">
+        <span class="section-label">Life at Tabernacle</span>
+        <h2 class="section-title">Moments of Grace</h2>
+        <div class="divider center"></div>
+        <p style="color:var(--muted);max-width:480px;margin:0 auto;font-weight:300">A glimpse into worship, fellowship, and community — click any photo to enlarge.</p>
+      </div>
+      <div class="mosaic">
+        <div class="mosaic-item big aos" data-caption="Sunday Worship"><figure class="ph "><span class="ph-label"><i>📷</i>Sunday Worship</span><img src=\"{% static 'images/gallery-1.jpg' %}\" alt="Sunday Worship" loading="lazy" onerror="this.remove()"></figure><span class="mosaic-cap">Sunday Worship</span></div>
+        <div class="mosaic-item  aos" data-caption="Youth Night"><figure class="ph "><span class="ph-label"><i>📷</i>Youth Night</span><img src=\"{% static 'images/gallery-2.jpg' %}\" alt="Youth Night" loading="lazy" onerror="this.remove()"></figure><span class="mosaic-cap">Youth Night</span></div>
+        <div class="mosaic-item  aos" data-caption="Children's Ministry"><figure class="ph "><span class="ph-label"><i>📷</i>Children's Ministry</span><img src=\"{% static 'images/gallery-3.jpg' %}\" alt="Children's Ministry" loading="lazy" onerror="this.remove()"></figure><span class="mosaic-cap">Children's Ministry</span></div>
+        <div class="mosaic-item wide aos" data-caption="Community Outreach"><figure class="ph "><span class="ph-label"><i>📷</i>Community Outreach</span><img src=\"{% static 'images/gallery-4.jpg' %}\" alt="Community Outreach" loading="lazy" onerror="this.remove()"></figure><span class="mosaic-cap">Community Outreach</span></div>
+        <div class="mosaic-item wide aos" data-caption="Baptism Day"><figure class="ph "><span class="ph-label"><i>📷</i>Baptism Day</span><img src=\"{% static 'images/gallery-5.jpg' %}\" alt="Baptism Day" loading="lazy" onerror="this.remove()"></figure><span class="mosaic-cap">Baptism Day</span></div>
+        <div class="mosaic-item wide aos" data-caption="Fellowship"><figure class="ph "><span class="ph-label"><i>📷</i>Fellowship</span><img src=\"{% static 'images/gallery-6.jpg' %}\" alt="Fellowship" loading="lazy" onerror="this.remove()"></figure><span class="mosaic-cap">Fellowship</span></div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn btn-gold" onclick="location.href='{% url 'gallery' %}'">View Full Gallery →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WELCOME -->
+  <section style="background:var(--cream)">
+    <div class="container">
+      <div class="welcome-grid">
+        <div class="welcome-text aos">
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">Where Every Soul Finds Home</h2>
+          <div class="divider"></div>
+          <p>Welcome to Tabernacle of Grace City of Hope Church — a vibrant community of faith rooted in the heart of Nairobi, Kenya. We are a people transformed by grace, sustained by hope, and united in worship.</p>
+          <p>Whether you are a lifelong believer or simply seeking something greater, our doors are open wide. Here you will find not just a church, but a family — a place where you belong.</p>
+          <p>We believe that every person carries a divine purpose, and our mission is to help you discover, develop, and deploy yours for the glory of God and the good of our community.</p>
+          <div class="stats">
+            <div class="stat"><strong>7+</strong><span>Years of Ministry</span></div>
+            <div class="stat"><strong>200+</strong><span>Church Family</span></div>
+            <div class="stat"><strong>6</strong><span>Ministries</span></div>
+          </div>
+          <div style="margin-top:2rem">
+            <button class="btn btn-gold" onclick="location.href='{% url 'about' %}'" style="font-size:.9rem">Learn Our Story →</button>
+          </div>
+        </div>
+        <div class="welcome-art aos aos-delay-2">
+          <figure class="ph welcome-photo"><span class="ph-label"><i>📷</i>Welcome photo</span><img src=\"{% static 'images/welcome.jpg' %}\" alt="Worship at Tabernacle of Grace" loading="lazy" onerror="this.remove()"></figure>
+          <div class="welcome-quote">
+            <blockquote>"Come to me, all who are weary and burdened, and I will give you rest."</blockquote>
+            <cite>Matthew 11:28</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section class="leadership-seg" style="background:var(--cream)">
+    <div class="container">
+      <div class="leadership-card aos">
+        <h2 class="leadership-title">Our Leadership</h2>
+        <div class="leadership-grid">
+          <div class="leadership-text">
+            <span class="leadership-label">Church Leadership</span>
+            <h3>Prophet &amp; Prophetess</h3>
+            <p>Together they shepherd the Tabernacle of Grace City of Hope family, leading with a heart for worship, the Word, and the transformation of lives across Nairobi and beyond.</p>
+            <button class="btn btn-gold btn-pill" onclick="location.href='{% url 'about' %}'">Meet Our Leadership</button>
+          </div>
+          <figure class="ph leadership-photo"><span class="ph-label"><i>📷</i>Leadership photo</span><img src=\"{% static 'images/leadership.jpg' %}\" alt="Our church leadership" loading="lazy" onerror="this.remove()"></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE TIMES -->
+  <section class="services-bg">
+    <div class="container">
+      <div style="text-align:center" class="aos">
+        <span class="section-label" style="color:var(--gold-light)">Join Us in Worship</span>
+        <h2 class="section-title light">Service Times</h2>
+        <div class="divider center"></div>
+        <p style="color:rgba(255,255,255,.6);font-weight:300;max-width:500px;margin:0 auto">Every gathering is a divine appointment. Come as you are, leave transformed.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card aos aos-delay-1">
+          <div class="service-icon">🌅</div>
+          <h3>Sunday Morning Service</h3>
+          <p>A powerful time of praise, worship, and the Word of God. All families welcome.</p>
+          <p class="time">⏰ Sundays · 9:00 AM – 12:00 PM</p>
+        </div>
+        <div class="service-card aos aos-delay-2">
+          <div class="service-icon">📖</div>
+          <h3>Midweek Bible Study</h3>
+          <p>Deepen your understanding of Scripture in an intimate group setting.</p>
+          <p class="time">⏰ Wednesdays · 6:00 PM – 8:00 PM</p>
+        </div>
+        <div class="service-card aos aos-delay-3">
+          <div class="service-icon">🙏</div>
+          <h3>Friday Night Prayer</h3>
+          <p>A powerful corporate prayer meeting seeking God's face together.</p>
+          <p class="time">⏰ Fridays · 7:00 PM – 9:00 PM</p>
+        </div>
+        <div class="service-card aos">
+          <div class="service-icon">🎵</div>
+          <h3>Worship Practice</h3>
+          <p>Open rehearsal for worship team and all musicians passionate for praise.</p>
+          <p class="time">⏰ Saturdays · 3:00 PM – 5:00 PM</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn btn-gold" onclick="location.href='{% url 'contact' %}'">Get Directions →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINISTRIES PREVIEW -->
+  <section style="background:var(--cream)">
+    <div class="container">
+      <div style="text-align:center" class="aos">
+        <span class="section-label">Find Your Place</span>
+        <h2 class="section-title">Our Ministries</h2>
+        <div class="divider center"></div>
+        <p style="color:var(--muted);max-width:480px;margin:0 auto;font-weight:300">Every gift matters. Every person belongs. Discover where God is calling you.</p>
+      </div>
+      <div class="ministries-grid">
+        <div class="ministry-card aos aos-delay-1">
+          <div class="ministry-header">
+            <div class="ministry-icon">🔥</div>
+            <h3>Youth Ministry</h3>
+            <p>Empowering the next generation to walk boldly in their faith and purpose. Dynamic worship, mentorship, and community for teens and young adults.</p>
+          </div>
+          <div class="ministry-footer">
+            <span class="ministry-time">Saturdays · 2:00 PM</span>
+            <button class="btn-sm" onclick="location.href='{% url 'ministries' %}'">Join Us</button>
+          </div>
+        </div>
+        <div class="ministry-card aos aos-delay-2">
+          <div class="ministry-header">
+            <div class="ministry-icon">🎶</div>
+            <h3>Worship Team</h3>
+            <p>Ushering in the presence of God through music, song, and the arts. We welcome all gifted musicians and vocalists passionate for worship.</p>
+          </div>
+          <div class="ministry-footer">
+            <span class="ministry-time">Saturdays · 3:00 PM</span>
+            <button class="btn-sm" onclick="location.href='{% url 'ministries' %}'">Join Us</button>
+          </div>
+        </div>
+        <div class="ministry-card aos aos-delay-3">
+          <div class="ministry-header">
+            <div class="ministry-icon">🌍</div>
+            <h3>Outreach & Evangelism</h3>
+            <p>Taking the love of Christ beyond the walls of the church into our neighborhoods, schools, and across the city of Nairobi.</p>
+          </div>
+          <div class="ministry-footer">
+            <span class="ministry-time">Monthly Outreaches</span>
+            <button class="btn-sm" onclick="location.href='{% url 'ministries' %}'">Join Us</button>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn btn-gold" onclick="location.href='{% url 'ministries' %}'">View All Ministries →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENTS -->
+  <section class="events-bg">
+    <div class="container">
+      <div class="aos">
+        <span class="section-label">Mark Your Calendar</span>
+        <h2 class="section-title">Upcoming Events</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="events-list">
+{% for e in events %}
+        <div class="event-item aos"><div class="event-date"><div class="day">{{ e.date|date:"d" }}</div><div class="month">{{ e.date|date:"M" }}</div></div><div class="event-info"><h4>{{ e.title }}</h4><p>{{ e.description }}{% if e.time_text %} · {{ e.time_text }}{% endif %}{% if e.location %} · {{ e.location }}{% endif %}</p></div><div class="event-tag">{{ e.category }}</div></div>
+        {% empty %}<p style="text-align:center;color:var(--muted)">No upcoming events right now. Please check back soon.</p>
+        {% endfor %}
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn btn-gold" onclick="location.href='{% url 'events' %}'">View Full Calendar →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERMONS PREVIEW -->
+  <section style="background:var(--ivory)">
+    <div class="container">
+      <div style="text-align:center" class="aos">
+        <span class="section-label">The Living Word</span>
+        <h2 class="section-title">Recent Sermons</h2>
+        <div class="divider center"></div>
+      </div>
+      <div class="sermons-grid">
+{% for s in sermons %}
+        <div class="sermon-card aos"><div class="sermon-thumb" style="{% if s.thumbnail %}background:url('{{ s.thumbnail.url }}') center/cover;{% endif %}{% if s.video_url %}cursor:pointer{% endif %}"{% if s.video_url %} onclick="window.open('{{ s.video_url }}','_blank')"{% endif %}><div class="play-btn"></div></div><div class="sermon-body"><p class="sermon-cat">{{ s.category }}</p><h4>"{{ s.title }}"</h4><p>{{ s.description }}</p><p class="sermon-meta">{{ s.speaker }} · {{ s.date|date:"M j, Y" }}</p></div></div>
+        {% empty %}<p style="text-align:center;color:var(--muted);grid-column:1/-1">New sermons are coming soon.</p>
+        {% endfor %}
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn btn-gold" onclick="location.href='{% url 'sermons' %}'">All Sermons →</button>
+        <button class="btn btn-outline" style="margin-left:1rem;color:var(--navy);border-color:var(--navy)" onclick="alert('Live stream will be available during service times. Join us Sunday 9AM! 🔴')">🔴 Watch Live</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-bg">
+    <div class="container">
+      <div style="text-align:center" class="aos">
+        <span class="section-label" style="color:var(--gold-light)">What People Say</span>
+        <h2 class="section-title light">Stories of Grace</h2>
+        <div class="divider center"></div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card aos aos-delay-1"><div class="testimonial-stars">★★★★★</div><blockquote>"I walked into Tabernacle of Grace carrying burdens I could not name. I walked out with joy I could not explain. This church is truly a place of hope."</blockquote><p class="testimonial-author">— Mary K., Nairobi</p></div>
+        <div class="testimonial-card aos aos-delay-2"><div class="testimonial-stars">★★★★★</div><blockquote>"The worship here is unlike anything I've experienced. You feel the presence of God from the moment you enter. My family found community here."</blockquote><p class="testimonial-author">— James O., Nairobi</p></div>
+        <div class="testimonial-card aos aos-delay-3"><div class="testimonial-stars">★★★★★</div><blockquote>"As a young person, the Youth Ministry completely transformed my faith. The leaders here truly care about your growth, not just your attendance."</blockquote><p class="testimonial-author">— Faith W., Youth Member</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAYER REQUEST -->
+  <section class="prayer-bg">
+    <div class="container">
+      <div style="text-align:center" class="aos">
+        <span class="section-label">We Carry One Another</span>
+        <h2 class="section-title">Submit a Prayer Request</h2>
+        <div class="divider center"></div>
+        <p class="prayer-verse">"The prayer of a righteous person is powerful and effective." — James 5:16</p>
+      </div>
+      <div class="prayer-form aos">
+        <div class="form-grid">
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+          <div class="form-group"><label>Phone / Email</label><input type="text" placeholder="Contact info"></div>
+          <div class="form-group full"><label>Prayer Category</label>
+            <select><option>Health & Healing</option><option>Financial Breakthrough</option><option>Family & Relationships</option><option>Career & Purpose</option><option>Salvation</option><option>Other</option></select>
+          </div>
+          <div class="form-group full"><label>Your Prayer Request</label><textarea placeholder="Share your request with us. Every prayer is treated with confidentiality and love."></textarea></div>
+        </div>
+        <div class="form-submit"><button class="btn btn-gold" data-submit="prayer">🙏 Send Prayer Request</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Tabernacle of Grace</div>
+      <p>City of Hope Church · {{ site.address }}, Kenya</p>
+      <p style="margin-top:.5rem;font-size:.82rem">📞 {{ site.phone }}</p>
+      <div class="newsletter" style="margin-top:1.2rem">
+        <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Newsletter</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button data-submit="subscribe">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'sermons' %}">Sermons</a></li>
+        <li><a href="{% url 'ministries' %}">Ministries</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ministries</h4>
+      <ul>
+        <li><a href="{% url 'ministries' %}">Youth Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Worship Team</a></li>
+        <li><a href="{% url 'ministries' %}">Children's Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Women's Ministry</a></li>
+        <li><a href="{% url 'ministries' %}">Men's Fellowship</a></li>
+        <li><a href="{% url 'ministries' %}">Outreach</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Service Times</h4>
+      <ul>
+        <li><a href="#">Sunday · 9:00 AM</a></li>
+        <li><a href="#">Wednesday · 6:00 PM</a></li>
+        <li><a href="#">Friday · 7:00 PM</a></li>
+        <li><a href="#">Saturday Practice · 3:00 PM</a></li>
+      </ul>
+      <div style="margin-top:1.2rem">
+        <h4>Follow Us</h4>
+        <div class="social-links" style="margin-top:.6rem">
+          <a href="#" title="Facebook" onclick="alert('Follow us on Facebook for updates! 📘');return false">f</a>
+          <a href="#" title="YouTube" onclick="alert('Subscribe to our YouTube channel! 📺');return false">▶</a>
+          <a href="#" title="Instagram" onclick="alert('Follow us on Instagram! 📸');return false">✦</a>
+          <a href="https://wa.me/254740181262" title="WhatsApp" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tabernacle of Grace City of Hope Church, Nairobi, Kenya.</span>
+    <span style="color:var(--gold);font-style:italic">"A Place of Grace, Hope, and Transformation"</span>
+  </div>
+</footer>
+
+<!-- DARK MODE TOGGLE -->
+<button class="dark-toggle" onclick="toggleDark()" title="Toggle dark/light mode" id="darkToggle">🌙</button>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
